@@ -5,15 +5,14 @@ import { AdminReportComponent } from './admin-report/admin-report.component';
 import { AdminSurveyorsComponent } from './admin-surveyors/admin-surveyors.component';
 import { AdminVendorsComponent } from './admin-vendors/admin-vendors.component';
 import { AdminTvcComponent } from './admin-tvc/admin-tvc/admin-tvc.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { HeaderComponent } from './header/header.component';
+
 
 const routes: Routes = [
   {
-    path:'admin',
-    component: AdminDashboardComponent
-
+    path: "",
+    component: AdminDashboardComponent,
   },
+  
   {
     path:'report',
     component: AdminReportComponent
@@ -29,13 +28,6 @@ const routes: Routes = [
   {
     path:'vendors',
     component: AdminVendorsComponent
-  },
-  {
-   path:'sidebar',
-   component: SidebarComponent
-  },{
-    path:'header',
-    component:HeaderComponent
   }
 ];
 

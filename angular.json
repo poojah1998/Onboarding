@@ -28,6 +28,9 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/core.css",
+              "src/assets/css/theme-default.css",
+              "src/assets/css/demo.css",
               "src/styles.scss"
             ],
             "scripts": []
