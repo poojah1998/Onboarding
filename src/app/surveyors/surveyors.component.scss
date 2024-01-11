@@ -1,0 +1,37 @@
+.s-list{
+    background-color: white;
+    padding: 10px;
+    .s-list-header {
+      font-size: 20px;
+      margin-top: 10px;
+      color: #C3CED2;
+    }
+    .item { 
+      display: flex;
+      padding: 10px 12px;
+      border:#E8F0FF
+      1px solid ;
+      flex-direction: row;
+      margin-bottom: 5px;
+      margin: 5px;
+      border-radius: 6px;
+      span { 
+        flex: 1;
+        color: #000;
+        font-weight: bold; 
+      }
+    }
+  }
+  
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color:#9fc1fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }

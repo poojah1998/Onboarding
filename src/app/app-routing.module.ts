@@ -5,6 +5,8 @@ import { AdminReportComponent } from './admin-report/admin-report.component';
 import { AdminSurveyorsComponent } from './admin-surveyors/admin-surveyors.component';
 import { AdminVendorsComponent } from './admin-vendors/admin-vendors.component';
 import { AdminTvcComponent } from './admin-tvc/admin-tvc/admin-tvc.component';
+import { RecentVendorsComponent } from './recent-vendors/recent-vendors.component';
+
 
 
 const routes: Routes = [
@@ -28,7 +30,12 @@ const routes: Routes = [
   {
     path:'vendors',
     component: AdminVendorsComponent
+  },
+  {
+    path:'recent-vendors',
+    component: RecentVendorsComponent
   }
+
 ];
 
 @NgModule({
