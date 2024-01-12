@@ -6,8 +6,6 @@ import { SharedModule } from './shared/shared.module';
 import { AdminReportComponent } from './admin-report/admin-report.component';
 import { AdminVendorsComponent } from './admin-vendors/admin-vendors.component';
 import { AdminSurveyorsComponent } from './admin-surveyors/admin-surveyors.component';
-// import { RecentVendorsComponent } from './recent-vendors/recent-vendors.component';
-// import { SurveyorsComponent } from './surveyors/surveyors.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
@@ -22,8 +20,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
         AdminVendorsComponent,
         AdminSurveyorsComponent,
         AdminDashboardComponent,
-        // RecentVendorsComponent,
-        // SurveyorsComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -32,11 +28,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
         SharedModule,
         AppRoutingModule,
         AngularFirestoreModule
-     
     ],
     exports: [
-        // RecentVendorsComponent,
-        // SurveyorsComponent
+        
       ]
 })
 export class AppModule {
