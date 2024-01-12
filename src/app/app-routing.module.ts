@@ -5,7 +5,7 @@ import { AdminReportComponent } from './admin-report/admin-report.component';
 import { AdminSurveyorsComponent } from './admin-surveyors/admin-surveyors.component';
 import { AdminVendorsComponent } from './admin-vendors/admin-vendors.component';
 import { AdminTvcComponent } from './admin-tvc/admin-tvc/admin-tvc.component';
-import { RecentVendorsComponent } from './recent-vendors/recent-vendors.component';
+import { RecentVendorsComponent } from './shared/recent-vendors/recent-vendors.component';
 
 
 
