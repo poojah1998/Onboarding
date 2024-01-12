@@ -12,6 +12,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { firebaseConfig } from 'src/firebase-config';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 
 @NgModule({
@@ -20,7 +21,6 @@ import { firebaseConfig } from 'src/firebase-config';
         AdminReportComponent,
         AdminVendorsComponent,
         AdminSurveyorsComponent,
-        SurveyorsComponent,
         AdminDashboardComponent,
         RecentVendorsComponent,
         SurveyorsComponent
@@ -31,6 +31,7 @@ import { firebaseConfig } from 'src/firebase-config';
         BrowserModule,
         SharedModule,
         AppRoutingModule,
+        AngularFirestoreModule
      
     ],
     exports: [
