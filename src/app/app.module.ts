@@ -9,6 +9,9 @@ import { AdminSurveyorsComponent } from './admin-surveyors/admin-surveyors.compo
 import { RecentVendorsComponent } from './recent-vendors/recent-vendors.component';
 import { SurveyorsComponent } from './surveyors/surveyors.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { firebaseConfig } from 'src/firebase-config';
 
 
 @NgModule({
@@ -28,10 +31,19 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
         BrowserModule,
         SharedModule,
         AppRoutingModule,
+     
     ],
     exports: [
         RecentVendorsComponent,
         SurveyorsComponent
       ]
 })
-export class AppModule { }
+export class AppModule {
+    constructor() {
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+       
+      }
+    
+ }
+
