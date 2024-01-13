@@ -10,8 +10,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { firebaseConfig } from 'src/firebase-config';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { ApiService } from './api.service';
 
 @NgModule({
     declarations: [
@@ -21,13 +21,14 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
         AdminSurveyorsComponent,
         AdminDashboardComponent,
     ],
-    providers: [],
+    providers: [ApiService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
         SharedModule,
         AppRoutingModule,
-        AngularFirestoreModule
+        AngularFireModule.initializeApp(firebaseConfig),
+        
     ],
     exports: [
         
