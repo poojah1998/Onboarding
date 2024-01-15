@@ -9,6 +9,8 @@ import { ApiService } from '../../api.service';
 export class RecentVendorsComponent implements OnInit {
   surveyorList: any[] = [];
   allUserInfoData: any[] = [];
+  pageSize: number = 5; // Number of items to show per page
+  currentPage: number = 1; // Current page
 
   constructor(private api: ApiService) { }
 
@@ -20,31 +22,34 @@ export class RecentVendorsComponent implements OnInit {
     this.api.getSurveyorsWithVendorInfo().subscribe(
       (res: any) => {
         this.surveyorList = res;
-        console.log(this.surveyorList);
-
-        const allVendorAccountInfoData: any[] = [];
 
         this.surveyorList.forEach(surveyor => {
           surveyor.userInfoForSurveyor.forEach((userInfo: any) => {
-            // Extract userInfoData and push to allUserInfoData array
             if (userInfo.userInfoData.length > 0) {
               this.allUserInfoData.push(...userInfo.userInfoData);
-            }
-
-            // Extract vendorAccountInfoData and push to allVendorAccountInfoData array
-            if (userInfo.vendorAccountInfoData && userInfo.vendorAccountInfoData.length > 0) {
-              allVendorAccountInfoData.push(...userInfo.vendorAccountInfoData);
             }
           });
         });
 
-        // Now you have separate arrays for userInfoData and vendorAccountInfoData
-        console.log('All UserInfoData:', this.allUserInfoData);
-        console.log('All VendorAccountInfoData:', allVendorAccountInfoData);
+        console.log('All UserInfoData:', this.allUserInfoData.length);
       },
       (error: any) => {
         console.error('Error getting vendors:', error);
       }
     );
+  }
+
+  get pagedUsers(): any[] {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    return this.allUserInfoData.slice(startIndex, endIndex);
+  }
+
+  hasMoreItems(): boolean {
+    return this.currentPage * this.pageSize < this.allUserInfoData.length;
+  }
+
+  loadMore() {
+    this.currentPage++;
   }
 }

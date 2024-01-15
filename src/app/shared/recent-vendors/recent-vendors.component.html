@@ -1,49 +1,23 @@
 <div class="list">
-  <div   style="display: flex;">
+  <div style="display: flex;">
     <div class="list-header">
       Recent Vendors
     </div>
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
       aria-expanded="false" style="margin-left: 10px; background: white;color: black;">
-     All Zones
+      All Zones
     </button>
   </div>
   <div>
-  <div class="item" *ngFor="let user of allUserInfoData">
-  
-    <span>9988776655</span>
-    <span>{{user.ownerName}}</span>
-    <span>{{user.selectedSpinnerItem}}</span>
-    <p>14:32</p>
-    <button>Acknowledged</button>
+    <div class="item" *ngFor="let user of pagedUsers">
+      <span>{{ user.phoneNum || 'N/A' }}</span>
+      <span>{{ user.ownerName || 'N/A' }}</span>
+      <span>{{ user.selectedSpinnerItem || 'N/A' }}</span>
+      <p>14:32</p>
+      <button>Acknowledged</button>
+    </div>
+    <div class="text-center"> 
+    <button *ngIf="hasMoreItems()" (click)="loadMore()"style="border: none; background: none; color: black;">See More</button>
+    </div>
   </div>
-</div>
-  <!-- <div class="item">
-    <span>9988776655</span>
-    <span>Ajay Kumar</span>
-    <span>zone 1</span>
-    <p>14:32</p>
-    <button>Acknowledged</button>
-  </div>
-  <div class="item">
-    <span>9988776655</span>
-    <span>Ajay Kumar</span>
-    <span>zone 1</span>
-    <p>14:32</p>
-    <button>Acknowledged</button>
-  </div>
-  <div class="item">
-    <span>9988776655</span>
-    <span>Ajay Kumar</span>
-    <span>zone 1</span>
-    <p>14:32</p>
-    <button>Acknowledged</button>
-  </div>
-  <div class="item">
-    <span>9988776655</span>
-    <span>Ajay Kumar</span>
-    <span>zone 1</span>
-    <p>14:32</p>
-    <button>Acknowledged</button>
-  </div> -->
 </div>
