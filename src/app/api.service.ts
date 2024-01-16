@@ -32,11 +32,10 @@ export class ApiService {
 
         surveyorQuerySnapshot.forEach((surveyorDoc) => {
           const vendorCollectionRef = surveyorDoc.ref.collection('vendors');
-          
+
           surveyorPromises.push(
             vendorCollectionRef.get().then((vendorQuerySnapshot) => {
               const userInfoPromises: Promise<{ vendorId: string }>[] = [];
-
               vendorQuerySnapshot.forEach((vendorDoc) => {
                 const vendorInfoCollectionRef =
                   vendorDoc.ref.collection('AddNewVendor');

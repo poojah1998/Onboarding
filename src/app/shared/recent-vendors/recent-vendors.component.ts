@@ -22,16 +22,21 @@ export class RecentVendorsComponent implements OnInit {
     this.api.getSurveyorsWithVendorInfo().subscribe(
       (res: any) => {
         this.surveyorList = res;
-
+    
         this.surveyorList.forEach(surveyor => {
+          // let allIds = surveyor.map((obj :any) => obj.id);
+
+          // let totalIds = allIds.length;
+           console.log(surveyor)
           surveyor.userInfoForSurveyor.forEach((userInfo: any) => {
+            
             if (userInfo.userInfoData.length > 0) {
               this.allUserInfoData.push(...userInfo.userInfoData);
             }
           });
         });
 
-        console.log('All UserInfoData:', this.allUserInfoData.length);
+        console.log('All UserInfoData:',this.allUserInfoData, this.allUserInfoData.length);
       },
       (error: any) => {
         console.error('Error getting vendors:', error);
