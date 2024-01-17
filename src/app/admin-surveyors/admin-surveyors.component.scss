@@ -78,3 +78,39 @@
     font-size: 10px;
     font-weight: bold;
   }
+
+
+
+  .surveyor-form {
+    padding: 20px; /* Adjust padding as needed */
+  }
+  .surveyor-form label {
+    font-weight: bold;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-check {
+    margin-bottom: 10px;
+  }
+  
+  .modal-footer {
+    border-top: 1px solid #ffffff;
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+
+  .btn-full-width {
+    width: 100%; /* Make the button full width */
+  }
+  
+  /* Remove lines between form groups */
+  .form-group {
+    margin-bottom: 0;
+  }
+  
+  .form-check {
+    margin-bottom: 0;
+  }
+  

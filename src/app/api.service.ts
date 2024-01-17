@@ -8,6 +8,8 @@ let async = require('async');
   providedIn: 'root',
 })
 export class ApiService {
+  name: any;
+  zone: any;
   constructor(private afs: AngularFirestore) { }
 
   getSurveyors() {
@@ -19,6 +21,7 @@ export class ApiService {
           const surveyorsData: any[] = [];
           querySnapshot.forEach((doc) => {
             surveyorsData.push({ id: doc.id, ...doc.data() });
+            
           });
           return surveyorsData;
         })
@@ -113,4 +116,29 @@ export class ApiService {
     );
   }
 
+  createSurveyorList(name: string, zone: string, onboardedVendors: boolean, certifiedVendors: boolean): Observable<any> {
+    const surveyorListCollectionRef = this.afs.collection('surveyorslist');
+
+    // Use add() to automatically generate a unique document ID
+    return from(surveyorListCollectionRef.add({
+      name,
+      zone,
+      onboardedVendors,
+      certifiedVendors
+    }));
+  }
+  getSurveyorList(): any {
+    return from(
+      this.afs.firestore
+        .collection('surveyorslist')
+        .get()
+        .then((querySnapshot) => {
+          const surveyorListData: any[] = [];
+          querySnapshot.forEach((doc) => {
+            surveyorListData.push({ id: doc.id, ...doc.data() });
+          });
+          return surveyorListData;
+        })
+    );
+  }
 }

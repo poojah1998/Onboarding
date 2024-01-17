@@ -7,21 +7,21 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./surveyors.component.scss']
 })
 export class SurveyorsComponent implements OnInit {
-  surveyorList: any[] = [];
+  surveyorListData: any[] = [];
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.surveyorData();
+    this.loadSurveyorList();
   }
 
-  surveyorData() {
-    this.api.getSurveyorsWithVendorInfo().subscribe(
+  loadSurveyorList() {
+    this.api.getSurveyorList().subscribe(
       (res: any) => {
-        this.surveyorList = res;
-        console.log(this.surveyorList);
+        this.surveyorListData = res;
+        // console.log(this.surveyorListData);
       },
       (error: any) => {
-        console.error('Error getting vendors:', error);
+        console.error('Error getting surveyor list:', error);
       }
     );
   }

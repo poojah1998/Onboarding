@@ -12,6 +12,9 @@ import { getFirestore } from 'firebase/firestore';
 import { firebaseConfig } from 'src/firebase-config';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ApiService } from './api.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
     declarations: [
@@ -20,6 +23,7 @@ import { ApiService } from './api.service';
         AdminVendorsComponent,
         AdminSurveyorsComponent,
         AdminDashboardComponent,
+        
     ],
     providers: [ApiService],
     bootstrap: [AppComponent],
@@ -28,6 +32,8 @@ import { ApiService } from './api.service';
         SharedModule,
         AppRoutingModule,
         AngularFireModule.initializeApp(firebaseConfig),
+        NgbModule,
+        FormsModule,
         
     ],
     exports: [

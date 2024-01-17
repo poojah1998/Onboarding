@@ -2,44 +2,13 @@
   <div class="s-list-header">
     Surveyors
   </div>
-  <div class="item">
-    <span>#01</span>
-    <span>Akash Gupta</span>
-    <span>zone 1</span>
+  <div class="item"  *ngFor="let user of surveyorListData;let i = index">
+    <span>#{{i+1}}</span>
+    <span>{{ user.name || 'N/A' }}</span>
+    <span>{{ user.zone || 'N/A' }}</span>
     <div class="circle">
       24
   </div>
   </div>
-  <div class="item">
-    <span>#01</span>
-    <span>Akash Gupta</span>
-    <span>zone 1</span>
-    <div class="circle">
-      24
-  </div>
-  </div>
-  <div class="item">
-    <span>#01</span>
-    <span>Akash Gupta</span>
-    <span>zone 1</span>
-    <div class="circle">
-      24
-  </div>
-  </div>
-  <div class="item">
-    <span>#01</span>
-    <span>Akash Gupta</span>
-    <span>zone 1</span>
-    <div class="circle">
-      24
-  </div>
-  </div>
-  <div class="item">
-    <span>#01</span>
-    <span>Akash Gupta</span>
-    <span>zone 1</span>
-    <div class="circle">
-      24
-  </div>
-  </div>
+
 </div>

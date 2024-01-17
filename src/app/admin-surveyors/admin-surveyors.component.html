@@ -11,10 +11,9 @@
         <div class="col-lg-4 col-md-12 col-6 mb-4">
             <div class="card">
                 <div class="card-body" style="background-color: #9fc1fb;color: white;border-radius: 10px">
-                    <span class="d-block text-center mb-3" style="
-                    padding-top: 26px;">Add Surveyor</span>
+                    <span class="d-block text-center mb-3" style="padding-top: 26px;" (click)="open(content)">Add
+                        Surveyor</span>
                     <h3 class="card-title text-center mb-0"></h3>
-                    <!-- <h3 class="card-title text-center mb-0">20</h3> -->
                 </div>
             </div>
         </div>
@@ -23,7 +22,7 @@
     <div class="list">
         <div style="display: flex;">
             <div class="list-header">
-                Recent Vendors
+                Recent Surveyors
             </div>
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false"
@@ -31,10 +30,10 @@
                 All Zones
             </button>
         </div>
-        <div class="item">
-            <span>#01</span>
-            <span>Pankaj Kumar</span>
-            <span>zone 1</span>
+        <div class="item"  *ngFor="let user of surveyorListData;let i = index">
+            <span>#{{i+1}}</span>
+            <span>{{ user.name || 'N/A' }}</span>
+            <span>{{ user.zone || 'N/A' }}</span>
             <div class="circle">
                 24
             </div>
@@ -45,57 +44,72 @@
             <span>Certified Vendors</span>
 
         </div>
-        <div class="item">
-            <span>#01</span>
-            <span>Pankaj Kumar</span>
-            <span>zone 1</span>
-            <div class="circle">
-                24
-            </div>
-            <span>Total Vendors Onboarded</span>
-            <div class="circle1">
-                22
-            </div>
-            <span>Certified Vendors</span>
-        </div>
-        <div class="item">
-            <span>#01</span>
-            <span>Pankaj Kumar</span>
-            <span>zone 1</span>
-            <div class="circle">
-                24
-            </div>
-            <span>Total Vendors Onboarded</span>
-            <div class="circle1">
-                22
-            </div>
-            <span>Certified Vendors</span>
-        </div>
-        <div class="item">
-            <span>#01</span>
-            <span>Pankaj Kumar</span>
-            <span>zone 1</span>
-            <div class="circle">
-                24
-            </div>
-            <span>Total Vendors Onboarded</span>
-            <div class="circle1">
-                22
-            </div>
-            <span>Certified Vendors</span>
-        </div>
-        <div class="item">
-            <span>#01</span>
-            <span>Pankaj Kumar</span>
-            <span>zone 1</span>
-            <div class="circle">
-                24
-            </div>
-            <span>Total Vendors Onboarded</span>
-            <div class="circle1">
-                22
-            </div>
-            <span>Certified Vendors</span>
-        </div>
     </div>
 </div>
+<!-- admin-surveyors.component.html -->
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile Update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSaveSurveyor()" class="surveyor-form">
+      <div class="mb-3">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Enter name" [(ngModel)]="name">
+      </div>
+      <div class="mb-3">
+        <label for="zone">Zone</label>
+        <input type="text" id="zone" name="zone" class="form-control" placeholder="Enter zone" [(ngModel)]="zone">
+      </div>
+      <div class="mb-3">
+        <div class="form-group">
+          <label>Onboarded Vendors</label>
+          <div class="form-check">
+            <input type="radio" id="onboardedYes" name="onboardedVendors" class="form-check-input" [(ngModel)]="onboardedVendors" [value]="true">
+            <label class="form-check-label" for="onboardedYes">Yes</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" id="onboardedNo" name="onboardedVendors" class="form-check-input" [(ngModel)]="onboardedVendors" [value]="false">
+            <label class="form-check-label" for="onboardedNo">No</label>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-group">
+          <label>Certified Vendors</label>
+          <div class="form-check">
+            <input type="radio" id="certifiedYes" name="certifiedVendors" class="form-check-input" [(ngModel)]="certifiedVendors" [value]="true">
+            <label class="form-check-label" for="certifiedYes">Yes</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" id="certifiedNo" name="certifiedVendors" class="form-check-input" [(ngModel)]="certifiedVendors" [value]="false">
+            <label class="form-check-label" for="certifiedNo">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="submit" class="btn btn-outline-dark btn-full-width" style="background-color: #9fc1fb;">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+<ng-template #content let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            <h4 class="modal-title" id="modal-basic-title">Profile Update</h4>
+        </div>
+        <div class="modal-body">
+            <!-- Your form content here -->
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+            <button type="submit" class="btn btn-outline-dark" style="background-color: #9fc1fb;">Save</button>
+        </div>
+    </div>
+</ng-template>
+
+<!-- <hr /> -->
+<!-- <pre>{{ closeResult }}</pre> -->
