@@ -10,10 +10,13 @@
     </button>
   </div>
   <div>
-    <ng-container *ngIf="isLoading; else loadedContent">
-      <!-- Skeleton loader when data is loading -->
-      <ngx-skeleton-loader count="3" appearance="circle"></ngx-skeleton-loader>
-    </ng-container>
+    <div *ngIf="isLoading; else loadedContent" class="skeleton-loader-container">
+      <div class="skeleton-item"></div>
+      <div class="skeleton-item"></div>
+      <div class="skeleton-item"></div>
+      <div class="skeleton-item"></div>
+      <div class="skeleton-item"></div>
+    </div>
 
     <ng-template #loadedContent>
       <!-- Actual content when data is loaded -->

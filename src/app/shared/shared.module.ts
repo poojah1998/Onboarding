@@ -5,7 +5,6 @@ import { HeaderComponent } from './header/header.component';
 import { SurveyorsComponent } from './surveyors/surveyors.component';
 import { RecentVendorsComponent } from './recent-vendors/recent-vendors.component';
 
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -17,7 +16,6 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
   ],
   imports: [
     CommonModule,
-    NgxSkeletonLoaderModule,
   ],
   exports: [
     HeaderComponent,

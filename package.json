@@ -25,7 +25,6 @@
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.3.2",
     "firebase": "^10.7.1",
-    "ngx-skeleton-loader": "^9.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
