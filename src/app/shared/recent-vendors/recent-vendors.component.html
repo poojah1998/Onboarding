@@ -1,3 +1,4 @@
+<!-- recent-vendors.component.html -->
 <div class="list">
   <div style="display: flex;">
     <div class="list-header">
@@ -9,15 +10,23 @@
     </button>
   </div>
   <div>
-    <div class="item" *ngFor="let user of pagedUsers">
-      <span>{{ user.phoneNum || 'N/A' }}</span>
-      <span>{{ user.ownerName || 'N/A' }}</span>
-      <span>{{ user.selectedSpinnerItem || 'N/A' }}</span>
-      <p>14:32</p>
-      <button>Acknowledged</button>
-    </div>
-    <div class="text-center"> 
-    <button *ngIf="hasMoreItems()" (click)="loadMore()"style="border: none; background: none; color: black;">See More</button>
-    </div>
+    <ng-container *ngIf="isLoading; else loadedContent">
+      <!-- Skeleton loader when data is loading -->
+      <ngx-skeleton-loader count="3" appearance="circle"></ngx-skeleton-loader>
+    </ng-container>
+
+    <ng-template #loadedContent>
+      <!-- Actual content when data is loaded -->
+      <div class="item" *ngFor="let user of pagedUsers">
+        <span>{{ user.phoneNum || 'N/A' }}</span>
+        <span>{{ user.ownerName || 'N/A' }}</span>
+        <span>{{ user.selectedSpinnerItem || 'N/A' }}</span>
+        <p>14:32</p>
+        <button>Acknowledged</button>
+      </div>
+      <div class="text-center">
+        <button *ngIf="hasMoreItems()" (click)="loadMore()" style="border: none; background: none; color: black;">See More</button>
+      </div>
+    </ng-template>
   </div>
 </div>

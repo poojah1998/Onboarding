@@ -13,12 +13,13 @@ export class RecentVendorsComponent implements OnInit {
   currentPage: number = 1; // Current page
 
   constructor(private api: ApiService) { }
-
+  isLoading: boolean = true;
   ngOnInit(): void {
     this.surveyorData();
   }
 
   surveyorData() {
+    this.isLoading = true;
     this.api.getSurveyorsWithVendorInfo().subscribe(
       (res: any) => {
         this.surveyorList = res;
@@ -37,6 +38,7 @@ export class RecentVendorsComponent implements OnInit {
         });
 
         // console.log('All UserInfoData:',this.allUserInfoData, this.allUserInfoData.length);
+        this.isLoading = false;
       },
       (error: any) => {
         console.error('Error getting vendors:', error);
