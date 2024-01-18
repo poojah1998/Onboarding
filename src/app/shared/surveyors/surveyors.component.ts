@@ -8,6 +8,7 @@ import { ApiService } from 'src/app/api.service';
 })
 export class SurveyorsComponent implements OnInit {
   surveyorListData: any[] = [];
+  isLoadingSurveyors: boolean = true;
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
@@ -15,10 +16,12 @@ export class SurveyorsComponent implements OnInit {
   }
 
   loadSurveyorList() {
+    this.isLoadingSurveyors = true;
     this.api.getSurveyorList().subscribe(
       (res: any) => {
         this.surveyorListData = res;
         // console.log(this.surveyorListData);
+        this.isLoadingSurveyors = false;
       },
       (error: any) => {
         console.error('Error getting surveyor list:', error);

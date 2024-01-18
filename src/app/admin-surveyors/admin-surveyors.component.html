@@ -30,6 +30,14 @@
                 All Zones
             </button>
         </div>
+        <div *ngIf="isLoadingSurveyors; else loadedSurveyorContent" class="skeleton-loader-container">
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+        </div>
+        <ng-template #loadedSurveyorContent>
         <div class="item"  *ngFor="let user of surveyorListData;let i = index">
             <span>#{{i+1}}</span>
             <span>{{ user.name || 'N/A' }}</span>
@@ -44,9 +52,10 @@
             <span>Certified Vendors</span>
 
         </div>
+      </ng-template>
     </div>
 </div>
-<!-- admin-surveyors.component.html -->
+<!-- surbeyor modal -->
 
 <ng-template #content let-modal>
   <div class="modal-header">

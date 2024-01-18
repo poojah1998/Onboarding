@@ -10,6 +10,7 @@ import { ModalDismissReasons, NgbDatepickerModule, NgbModal, NgbModalRef } from 
   styleUrls: ['./admin-surveyors.component.scss']
 })
 export class AdminSurveyorsComponent implements OnInit {
+  isLoadingSurveyors: boolean = true;
   surveyorList: any[] = [];
   surveyorListData: any[] = [];
   closeResult = '';
@@ -26,10 +27,11 @@ export class AdminSurveyorsComponent implements OnInit {
   }
 
   surveyorData() {
+
     this.api.getSurveyors().subscribe(
       (res: any) => {
         this.surveyorList = res;
-        // console.log(this.surveyorList);
+   
       },
       (error: any) => {
         console.error('Error getting vendors:', error);
@@ -55,10 +57,12 @@ export class AdminSurveyorsComponent implements OnInit {
     this.certifiedVendors = true;
   }
   loadSurveyorList() {
+    this.isLoadingSurveyors = true;
     this.api.getSurveyorList().subscribe(
       (res: any) => {
         this.surveyorListData = res;
-        // console.log(this.surveyorListData);
+        this.isLoadingSurveyors = false;
+       console.log(this.surveyorListData);
       },
       (error: any) => {
         console.error('Error getting surveyor list:', error);
