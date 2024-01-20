@@ -20,7 +20,7 @@ export class SurveyorsComponent implements OnInit {
     this.api.getSurveyorList().subscribe(
       (res: any) => {
         this.surveyorListData = res;
-        // console.log(this.surveyorListData);
+         console.log(this.surveyorListData);
         this.isLoadingSurveyors = false;
       },
       (error: any) => {

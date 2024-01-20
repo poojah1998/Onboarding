@@ -6,6 +6,7 @@ import { AdminSurveyorsComponent } from './admin-surveyors/admin-surveyors.compo
 import { AdminVendorsComponent } from './admin-vendors/admin-vendors.component';
 import { AdminTvcComponent } from './admin-tvc/admin-tvc/admin-tvc.component';
 import { RecentVendorsComponent } from './shared/recent-vendors/recent-vendors.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -20,7 +21,7 @@ const routes: Routes = [
     component: AdminReportComponent
   },
   {
-    path:'surveyor',
+    path:'admin-surveyor',
     component: AdminSurveyorsComponent
   },
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path:'recent-vendors',
     component: RecentVendorsComponent
+  },
+  {
+    path:'login',
+    component: LoginComponent
   }
 
 ];

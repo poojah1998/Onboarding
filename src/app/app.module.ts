@@ -13,7 +13,9 @@ import { firebaseConfig } from 'src/firebase-config';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ApiService } from './api.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import { FormsModule } from '@angular/forms';
         AdminVendorsComponent,
         AdminSurveyorsComponent,
         AdminDashboardComponent,
+        LoginComponent,
         
     ],
     providers: [ApiService],
@@ -34,7 +37,8 @@ import { FormsModule } from '@angular/forms';
         AngularFireModule.initializeApp(firebaseConfig),
         NgbModule,
         FormsModule,
-    
+        AngularFirestoreModule,
+        ReactiveFormsModule,
     ],
     exports: [
         

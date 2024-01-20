@@ -1,5 +1,5 @@
 <div class="layout-wrapper layout-content-navbar">
-    <div class="layout-container">
+    <div class="layout-container" *ngIf="app_shared_display">
         <app-sidebar></app-sidebar>
         <div class="layout-page">
             <app-header></app-header>
@@ -8,4 +8,9 @@
             </div>
         </div>
     </div>
+    
+</div>
+<!-- login page -->
+<div  *ngIf="!app_shared_display">
+    <router-outlet></router-outlet>
 </div>

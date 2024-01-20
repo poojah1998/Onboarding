@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, from } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
-let async = require('async');
 
 @Injectable({
   providedIn: 'root',
@@ -29,13 +28,14 @@ export class ApiService {
   }
 
   getSurveyorsWithVendorInfo(): Observable<any[]> {
+    console.log("11111111111111111111111111111111")
     return from(this.afs.firestore.collection('surveyors').get()).pipe(
       switchMap((surveyorQuerySnapshot) => {
         const surveyorPromises: Promise<any>[] = [];
 
         surveyorQuerySnapshot.forEach((surveyorDoc) => {
           const vendorCollectionRef = surveyorDoc.ref.collection('vendors');
-
+           console.log(vendorCollectionRef);
           surveyorPromises.push(
             vendorCollectionRef.get().then((vendorQuerySnapshot) => {
               const userInfoPromises: Promise<{ vendorId: string }>[] = [];

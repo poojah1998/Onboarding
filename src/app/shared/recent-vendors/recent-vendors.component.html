@@ -23,8 +23,8 @@
       <div class="item" *ngFor="let user of pagedUsers">
         <span>{{ user.phoneNum || 'N/A' }}</span>
         <span>{{ user.ownerName || 'N/A' }}</span>
-        <span>{{ user.selectedSpinnerItem || 'N/A' }}</span>
-        <p>14:32</p>
+        <p>{{ user.currentTimeMillis ? (user.currentTimeMillis | date: 'HH:mm') : 'N/A' }}</p>
+        <!-- <p>14:32</p> -->
         <button>Acknowledged</button>
       </div>
       <div class="text-center">

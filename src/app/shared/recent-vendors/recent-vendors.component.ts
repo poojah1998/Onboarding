@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-recent-vendors',
@@ -12,9 +13,10 @@ export class RecentVendorsComponent implements OnInit {
   pageSize: number = 5; // Number of items to show per page
   currentPage: number = 1; // Current page
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,private datePipe: DatePipe) { }
   isLoading: boolean = true;
   ngOnInit(): void {
+    console.log("i am inside the resent vendors")
     this.surveyorData();
   }
 
@@ -22,30 +24,34 @@ export class RecentVendorsComponent implements OnInit {
     this.isLoading = true;
     this.api.getSurveyorsWithVendorInfo().subscribe(
       (res: any) => {
+        console.log('Firestore response:', res);
         this.surveyorList = res;
-    
-        this.surveyorList.forEach(surveyor => {
-          // let allIds = surveyor.map((obj :any) => obj.id);
-
-          // let totalIds = allIds.length;
-          //  console.log(surveyor)
-          surveyor.userInfoForSurveyor.forEach((userInfo: any) => {
-            
-            if (userInfo.userInfoData.length > 0) {
-              this.allUserInfoData.push(...userInfo.userInfoData);
+  
+        for (const surveyorKey in this.surveyorList) {
+          if (Object.prototype.hasOwnProperty.call(this.surveyorList, surveyorKey)) {
+            const surveyor = this.surveyorList[surveyorKey];
+  
+          
+            if (surveyor && surveyor.userInfoForSurveyor) {
+              for (const userInfo of surveyor.userInfoForSurveyor) {
+                if (userInfo.userInfoData && userInfo.userInfoData.length > 0) {
+                  this.allUserInfoData.push(...userInfo.userInfoData);
+                }
+              }
             }
-          });
-        });
-
-        // console.log('All UserInfoData:',this.allUserInfoData, this.allUserInfoData.length);
+          }
+        }
+  
+        console.log('All UserInfoData:', this.allUserInfoData, this.allUserInfoData.length);
         this.isLoading = false;
       },
       (error: any) => {
+        console.log('Firestore error:', error);
         console.error('Error getting vendors:', error);
       }
     );
   }
-
+  
   get pagedUsers(): any[] {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;

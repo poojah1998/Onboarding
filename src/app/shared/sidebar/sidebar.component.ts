@@ -19,7 +19,7 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['/vendors']);
   }
   navigatetoSurveyor(){
-    this.router.navigate(['/surveyor']);
+    this.router.navigate(['/admin-surveyor']);
   }
   navigatetoTvc(){
     this.router.navigate(['/tvc']);
