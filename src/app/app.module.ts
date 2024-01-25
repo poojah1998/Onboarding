@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { VendorsInformationComponent } from './vendors-information/vendors-information.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
         AdminSurveyorsComponent,
         AdminDashboardComponent,
         LoginComponent,
+        VendorsInformationComponent,
         
     ],
     providers: [ApiService],
