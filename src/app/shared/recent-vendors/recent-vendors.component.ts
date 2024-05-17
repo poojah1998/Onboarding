@@ -26,16 +26,19 @@ export class RecentVendorsComponent implements OnInit {
       (res: any) => {
         console.log('Firestore response:', res);
         this.surveyorList = res;
-  
+        console.log(this.surveyorList);
+
         for (const surveyorKey in this.surveyorList) {
           if (Object.prototype.hasOwnProperty.call(this.surveyorList, surveyorKey)) {
             const surveyor = this.surveyorList[surveyorKey];
-  
+            console.log(surveyor);
           
             if (surveyor && surveyor.userInfoForSurveyor) {
               for (const userInfo of surveyor.userInfoForSurveyor) {
+                console.log(userInfo);
                 if (userInfo.userInfoData && userInfo.userInfoData.length > 0) {
                   this.allUserInfoData.push(...userInfo.userInfoData);
+                  console.log(this.allUserInfoData);
                 }
               }
             }
@@ -55,7 +58,9 @@ export class RecentVendorsComponent implements OnInit {
   get pagedUsers(): any[] {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
+    console.log(this.allUserInfoData);
     return this.allUserInfoData.slice(startIndex, endIndex);
+  
   }
 
   hasMoreItems(): boolean {

@@ -1,1 +1,180 @@
-<p>vendors-information works!</p>
+
+<ng-template #content let-modal>
+    <ng-template #content let-modal>
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            <h4 class="modal-title" id="modal-basic-title">Profile Update</h4>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="longForm">
+              <!-- First Name input -->
+              <div class="mb-3">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" class="form-control" formControlName="firstName">
+                <div *ngIf="longForm.get('firstName')?.invalid && longForm.get('firstName')?.touched" class="text-danger">
+                  <p *ngIf="longForm.get('firstName')?.errors?.['required']">First Name is required.</p>
+                </div>
+              </div>
+              <!-- Last Name input -->
+              <div class="mb-3">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" class="form-control" formControlName="lastName">
+                <div *ngIf="longForm.get('lastName')?.invalid && longForm.get('lastName')?.touched" class="text-danger">
+                  <p *ngIf="longForm.get('lastName')?.errors?.['required']">Last Name is required.</p>
+                </div>
+              </div>
+      
+              <!-- Gender input -->
+              <div class="mb-3">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" class="form-control" formControlName="gender">
+                  <option value="" disabled selected>Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <!-- Add more gender options if needed -->
+                </select>
+                <div *ngIf="longForm.get('gender')?.invalid && longForm.get('gender')?.touched" class="text-danger">
+                  <p *ngIf="longForm.get('gender')?.errors?.['required']">Gender is required.</p>
+                </div>
+              </div>
+      
+              <!-- Date of Birth input -->
+              <div class="mb-3">
+                <label for="dateOfBirth">Date of Birth</label>
+                <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control" formControlName="dateOfBirth">
+                <div *ngIf="longForm.get('dateOfBirth')?.invalid && longForm.get('dateOfBirth')?.touched" class="text-danger">
+                  <p *ngIf="longForm.get('dateOfBirth')?.errors?.['required']">Date of Birth is required.</p>
+                </div>
+              </div>
+      
+              <!-- Phone Number input -->
+              <div class="mb-3">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" formControlName="phoneNumber">
+                <div *ngIf="longForm.get('phoneNumber')?.invalid && longForm.get('phoneNumber')?.touched" class="text-danger">
+                  <p *ngIf="longForm.get('phoneNumber')?.errors?.['required']">Phone Number is required.</p>
+                </div>
+              </div>
+      
+              <!-- Landline Number input -->
+              <div class="mb-3">
+                <label for="landlineNumber">Landline Number</label>
+                <input type="tel" id="landlineNumber" name="landlineNumber" class="form-control" formControlName="landlineNumber">
+              </div>
+      
+              <!-- Email Address input -->
+              <div class="mb-3">
+                <label for="emailAddress">Email Address</label>
+                <input type="email" id="emailAddress" name="emailAddress" class="form-control" formControlName="emailAddress">
+                <div *ngIf="longForm.get('emailAddress')?.invalid && longForm.get('emailAddress')?.touched" class="text-danger">
+                  <p *ngIf="longForm.get('emailAddress')?.errors?.['required']">Email Address is required.</p>
+                  <p *ngIf="longForm.get('emailAddress')?.errors?.['required']">Invalid email format.</p>
+                </div>
+              </div>
+      
+              <!-- Parent's Name input -->
+              <div class="mb-3">
+                <label for="parentName">Parent's Name</label>
+                <input type="text" id="parentName" name="parentName" class="form-control" formControlName="parentName">
+                <div *ngIf="longForm.get('parentName')?.invalid && longForm.get('parentName')?.touched" class="text-danger">
+                  <p *ngIf="longForm.get('parentName')?.errors?.['required']">Parent's Name is required.</p>
+                </div>
+              </div>
+      
+              <!-- Marital Status input -->
+              <div class="mb-3">
+                <label for="maritalStatus">Marital Status</label>
+                <select id="maritalStatus" name="maritalStatus" class="form-control" formControlName="maritalStatus">
+                  <option value="" disabled selected>Select Marital Status</option>
+                  <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="widowed">Widowed</option>
+                    <option value="divorced">Divorced</option>
+                    <!-- Add more marital status options if needed -->
+                  </select>
+                  <div *ngIf="longForm.get('maritalStatus')?.invalid && longForm.get('maritalStatus')?.touched" class="text-danger">
+                    <p *ngIf="longForm.get('maritalStatus')?.errors?.['required']">Marital Status is required.</p>
+                  </div>
+                </div>
+        
+                <!-- Address section -->
+                <div class="mb-3">
+                  <label for="permanentAddress">Permanent Address</label>
+                  <textarea id="permanentAddress" name="permanentAddress" class="form-control" formControlName="permanentAddress"></textarea>
+                  <div *ngIf="longForm.get('permanentAddress')?.invalid && longForm.get('permanentAddress')?.touched" class="text-danger">
+                    <p *ngIf="longForm.get('permanentAddress')?.errors?.['required']">Permanent Address is required.</p>
+                  </div>
+                </div>
+        
+                <div class="mb-3">
+                  <label for="currentAddress">Current Address</label>
+                  <textarea id="currentAddress" name="currentAddress" class="form-control" formControlName="currentAddress"></textarea>
+                </div>
+        
+                <!-- Education Level input -->
+                <div class="mb-3">
+                  <label for="educationLevel">Education Level</label>
+                  <input type="text" id="educationLevel" name="educationLevel" class="form-control" formControlName="educationLevel">
+                </div>
+        
+                <!-- Annual Income input -->
+                <div class="mb-3">
+                  <label for="annualIncome">Annual Income</label>
+                  <input type="number" id="annualIncome" name="annualIncome" class="form-control" formControlName="annualIncome">
+                </div>
+        
+                <!-- Has been previously recognized as a vendor? input -->
+                <div class="mb-3 form-check">
+                  <input type="checkbox" id="recognizedAsVendor" name="recognizedAsVendor" class="form-check-input" formControlName="recognizedAsVendor">
+                  <label class="form-check-label" for="recognizedAsVendor">Has been previously recognized as a vendor?</label>
+                </div>
+        
+                <!-- Category input -->
+                <div class="mb-3">
+                  <label for="category">Category</label>
+                  <input type="text" id="category" name="category" class="form-control" formControlName="category">
+                </div>
+        
+                <!-- Land/Fixed Asset owned input -->
+                <div class="mb-3">
+                  <label for="assetOwned">Land/Fixed Asset owned</label>
+                  <input type="text" id="assetOwned" name="assetOwned" class="form-control" formControlName="assetOwned">
+                </div>
+        
+                <!-- Bank Details input -->
+                <div class="mb-3">
+                  <label for="bankDetails">Bank Details</label>
+                  <textarea id="bankDetails" name="bankDetails" class="form-control" formControlName="bankDetails"></textarea>
+                </div>
+        
+                <!-- Aadhar Number input -->
+                <div class="mb-3">
+                  <label for="aadharNumber">Aadhar Number</label>
+                  <input type="text" id="aadharNumber" name="aadharNumber" class="form-control" formControlName="aadharNumber">
+                </div>
+        
+                <!-- Pan Number input -->
+                <div class="mb-3">
+                  <label for="panNumber">Pan Number</label>
+                  <input type="text" id="panNumber" name="panNumber" class="form-control" formControlName="panNumber">
+                </div>
+        
+                <!-- Voter ID input -->
+                <div class="mb-3">
+                  <label for="voterId">Voter ID</label>
+                  <input type="text" id="voterId" name="voterId" class="form-control" formControlName="voterId">
+                </div>
+        
+                <!-- Additional Document input -->
+                <div class="mb-3">
+                  <label for="additionalDocument">Additional Document</label>
+                  <input type="text" id="additionalDocument" name="additionalDocument" class="form-control" formControlName="additionalDocument">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button type="submit" class="btn btn-outline-dark" style="background-color: #9fc1fb;">Save</button>
+            </div>
+          </div>
+        </ng-template>

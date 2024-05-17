@@ -28,20 +28,17 @@ export class ApiService {
   }
 
   getSurveyorsWithVendorInfo(): Observable<any[]> {
-    console.log("11111111111111111111111111111111")
     return from(this.afs.firestore.collection('surveyors').get()).pipe(
       switchMap((surveyorQuerySnapshot) => {
         const surveyorPromises: Promise<any>[] = [];
-
         surveyorQuerySnapshot.forEach((surveyorDoc) => {
           const vendorCollectionRef = surveyorDoc.ref.collection('vendors');
-           console.log(vendorCollectionRef);
           surveyorPromises.push(
             vendorCollectionRef.get().then((vendorQuerySnapshot) => {
               const userInfoPromises: Promise<{ vendorId: string }>[] = [];
               vendorQuerySnapshot.forEach((vendorDoc) => {
                 const vendorInfoCollectionRef =
-                  vendorDoc.ref.collection('AddNewVendor');
+                  vendorDoc.ref.collection('vendorList');
                 const accInfoCollectionRef =
                   vendorDoc.ref.collection('AccountInformation');
                 const userInfoData: any[] = [];

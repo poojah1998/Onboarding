@@ -1,0 +1,48 @@
+
+
+.modal-content {
+    max-height: 80vh; /* Set maximum height for the modal content */
+    overflow-y: auto; /* Enable vertical scrolling if the content exceeds the height */
+  }
+  
+  /* Optional: Adjust form input styling */
+  .form-control {
+    margin-bottom: 15px;
+  }
+  
+  .text-danger {
+    color: red;
+  }
+  
+  /* Optional: Style the Save button */
+  .modal-footer button {
+    background-color: #9fc1fb;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Optional: Style the modal header */
+  .modal-header {
+    background-color: #9fc1fb;
+    color: #fff;
+    padding: 15px;
+  }
+  
+  /* Optional: Style the modal title */
+  .modal-title {
+    margin: 0;
+  }
+  
+  /* Optional: Style the modal body */
+  .modal-body {
+    padding: 15px;
+  }
+  
+  /* Optional: Style the modal footer */
+  .modal-footer {
+    background-color: #f0f0f0;
+    padding: 15px;
+  }
+  
